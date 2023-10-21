@@ -10,6 +10,7 @@ import NearbyFiresButton from "../components/NearbyFiresButton/NearbyFiresButton
 import ClearNearbyFiresButton from "../components/ClearNearbyFiresButton/ClearNearbyFiresButton";
 import NearbyFiresTable from "../components/NearbyFiresTable/NearbyFiresTable";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 
 const HomePage = () => {
@@ -48,7 +49,6 @@ const HomePage = () => {
         return false;
     };
 
-    // Filtrar los datos completos antes de paginar
     const filteredWildfires = wildfires.filter(applyFilters);
 
     const indexOfLastRecord = currentPage * recordsPerPage;
@@ -93,7 +93,6 @@ const HomePage = () => {
     const openNearbyFiresModal = () => {
         setShowNearbyFiresModal(true);
 
-        // Comprueba si hay incendios cercanos y oculta el botón si es el caso
         if (nearbyFires.length > 0) {
             setShowNearbyFiresButton(false);
         }
@@ -118,10 +117,8 @@ const HomePage = () => {
         const userLatitude = parseFloat(latitude);
         const userLongitude = parseFloat(longitude);
 
-        // Radio de la Tierra en kilómetros
         const earthRadius = 6371;
 
-        // Filtro para encontrar incendios cercanos (menos de 10 km)
         const nearbyFires = wildfires.filter((fire) => {
             if (
                 fire.posicion &&
@@ -154,21 +151,20 @@ const HomePage = () => {
         setNearbyFires(nearbyFires);
 
         if (nearbyFires.length > 0) {
-            setShowClearNearbyFiresButton(true); // Muestra el botón solo cuando hay incendios cercanos
+            setShowClearNearbyFiresButton(true);
         }
 
-        // Cierra la modal después de buscar incendios cercanos
         closeNearbyFiresModal();
 
         window.scrollTo({
             top: document.body.scrollHeight,
-            behavior: 'auto', // O 'auto' para un desplazamiento instantáneo
+            behavior: 'auto',
         });
     };
 
     const handleClearNearbyFires = () => {
-        setNearbyFires([]); // Borra el contenido de incendios cercanos
-        setShowClearNearbyFiresButton(false); // Oculta el botón para borrar incendios cercanos
+        setNearbyFires([]);
+        setShowClearNearbyFiresButton(false);
     };
 
 
@@ -263,6 +259,7 @@ const HomePage = () => {
                     )}
                 </div>
             </div>
+            <Footer />
         </>
     );
 
