@@ -50,4 +50,4 @@ SPA thats show real-time information about the forest fires detected in Castilla
 - WildfireTable: contains wildires table
 
 ### SERVICES
-- wildfire.services: 
+- wildfire.services: API call service to get the data
