@@ -27,6 +27,9 @@ SPA thats show real-time information about the forest fires detected in Castilla
 
 ## PROJECT INFO
 
+### PROJECT LINK
+- https://abarba-wildfire-tracker.netlify.app/
+
 ### ROUTES
 
 | URL | Description     | Protected                |
